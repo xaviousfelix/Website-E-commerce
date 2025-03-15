@@ -1,3 +1,8 @@
+## ตัวอย่างหน้าจอของโปรเจค
+![หน้าแรกของเว็บไซต์](https://github.com/xaviousfelix/Shopstore2Hand/assets/118479639/30f0f1b1-41d7-4c3b-930e-c87a4da7f861)
+
+![หน้าสินค้า](https://github.com/xaviousfelix/Shopstore2Hand/assets/118479639/e0f97b1f-26ca-4a8f-a0d9-9eaea5f0fe5b)
+
 ![image](https://github.com/xaviousfelix/Shopstore2Hand/assets/118479639/30f0f1b1-41d7-4c3b-930e-c87a4da7f861)
 ![image](https://github.com/xaviousfelix/Shopstore2Hand/assets/118479639/e0f97b1f-26ca-4a8f-a0d9-9eaea5f0fe5b)
 ![image](https://github.com/xaviousfelix/Shopstore2Hand/assets/118479639/bd063646-62e8-4a94-89ec-ea07c81a4b4c)
