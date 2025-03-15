@@ -1,0 +1,13 @@
+# Node.js (ถ้าใช้)
+node_modules/
+package-lock.json
+
+# VS Code settings
+.vscode/
+
+# Build files (ถ้าใช้ Webpack/Vite)
+dist/
+
+# ไฟล์ที่ไม่ต้องการให้ขึ้น GitHub
+.env
+.DS_Store

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* Add custom styles for the navigation bar and search bar */
+    .navbar {
+      background-color: rgba(23, 165, 186, 0.42); /* Set the background color to the same blue color as the background above main content */
+      color: #ffffff;
+      padding: 20px;
+      margin: 0; /* Add margin 0 to remove default margin */
+    }
+    .navbar a {
+      color: #ffffff;
+    }
+    .navbar .navbar-right {
+      float: right;
+      padding-right: 20px;
+    }
+  </style>
+  <style>
+    .left-aligned-text {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><h4>Update Product</h4></a>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content ">
+    <div class="container text-center">
+      <h1 class="mt-4">แก้ไขรายการสินค้า</h1>
+      <div class="edit-form mt-4">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ชื่อสินค้า</th>
+              <th>ราคา</th>
+              <th>จำนวน</th>
+              <th>รูปภาพ</th>
+              <th>แก้ไข</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <form action="/edit/<%= data.ProductID %>" method="post" enctype="multipart/form-data">
+                <td><input name="ProductName" value="<%=data.ProductName%>" class="form-control"></td> 
+                <td><input name="ProductPrice" value="<%=data.ProductPrice%>" class="form-control"></td> 
+                <td><input name="UnitsInStock" value="<%=data.UnitsInStock%>" class="form-control"></td> 
+                <td>
+                  <input type="hidden" name="oldImage" value="<%= data.image %>"class="form-control">
+                  <input type="file" name="image" accept="image/*" class="form-control"></td>
+                <td><button type="button" onclick="confirmEdit()" class="btn btn-primary">แก้ไข</button></td>
+              </form>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    // JavaScript function for confirmation before editing
+    function confirmEdit() {
+      var confirmed = confirm("คุณต้องการแก้ไขรายการสินค้าใช่ไหม?");
+      if (confirmed) {
+        document.querySelector('form').submit();
+      } else {
+        // Do nothing
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <style>
+    /* Add custom styles for the navigation bar and search bar */
+    body {
+
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar a {
+      text-decoration: none;
+      /* กำหนดให้ไม่มีขีดเส้นใต้ในลิงก์ */
+    }
+
+    .navbar a:active {
+      color: #8d8d8d;
+    }
+
+    .navbar .navbar-right {
+      float: right;
+      
+    }
+    .custom-header {
+      background-image: url('https://www.uniqlo.com/jp/ja/contents/feature/lifewear-collection/common_23fw/img/sweatshirts/women_tops_feature_pc.jpg');
+      background-size: auto 1080px;
+      /* กำหนดให้พื้นหลังภาพปรับขนาดเพื่อพอดีกับ header */
+      background-position: center;
+      /* กำหนดจุดศูนย์กลางของรูปภาพอยู่ตรงกลาง header */
+      width: 100%;
+      /* กำหนดความกว้างของ header เท่ากับหน้าจอ */
+      height: 300px;
+      /* กำหนดความสูงของ header */
+      margin-bottom: 30px;
+      /* กำหนดระยะห่างของ header กับเนื้อหาด้านล่าง */
+    }
+    .fade-in {
+  animation: fadeInAnimation 1s ease-in forwards; /* 1s คือความยาวของ animation */
+  opacity: 0; /* เริ่มต้นที่โปร่งใส 0 */
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1; /* สิ้นสุดที่โปร่งใส 1 */
+  }
+}
+  </style>
+</head>
+
+<body class="bg-light">
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> KGN<i class="bi bi-2-circle-fill"></i>HAND</a>
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link " href="/"><i class="bi bi-house-fill"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/customer_auth/productsForm"><i class="bi bi-bag-fill"></i> Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/services"><i class="bi bi-gear-fill"></i> Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact"><i class="bi bi-person-lines-fill"></i> Contact Us</a>
+        </li>
+      </ul>
+
+      <form class="d-flex">
+        <div class="container-fluid">
+          <div class="navbar-right">
+
+            <a href="/loginform" class="nav-item link-dark"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+            <a> | </a>
+            <a href="/registerForm" class="nav-item link-dark"> Sign Up!</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+  <!-- header -->
+  <header class="bg-dark py-5 custom-header">
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">Welcome to KGN2HAND</h1>
+        <p class="lead fw-normal text-white-50 mb-0">ร้านเสื้อผ้า-กางเกงมือสองคุณภาพดีคัดมาอย่างมีคุณภาพ </p>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Main content -->
+
+  <div class="main-content">
+    <section id="scroll">
+      <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5"><img class="img-fluid rounded-circle fade-in" src="https://i.pinimg.com/564x/73/22/f8/7322f8d91a07debd681d121da82207fb.jpg" alt="..."></div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">ค้นหาสไตล์ที่ใช่ที่เหมาะกับคุณ...</h2>
+              <p>สินค้าราคาถูก คุณภาพดี สามารถจับต้องได้...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="p-5"><img class="img-fluid rounded-circle fade-in" src="https://i.pinimg.com/736x/1b/60/71/1b6071eeb126441b04c4b1c496c255c7.jpg" alt="..."></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-5">
+              <h2 class="display-4">Lifewear-collection 2023 Fall/Winter collection </h2>
+              <p>สินค้าราคาคุ้มค่าใส่สบายที่คุณห้ามพลาด...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="p-5"><img class="img-fluid rounded-circle fade-in" src="https://i.pinimg.com/564x/17/c9/86/17c98610ca6f1b91eb71ff391fc5d9e7.jpg" alt="..."></div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">จะรอไรล่ะ ซื้อเลย!</h2>
+              <p>มาแต่งตัวกันเถอะ กล้าที่จะแปลก กล้าที่จะเป็นตัวของตัวเอง อย่าไปสนคำดูถูก กล้าที่จะเท่...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

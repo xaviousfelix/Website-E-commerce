@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .card {
+    width: 75%;
+    margin: 0 auto;
+    max-width: 300px;
+    /* You can adjust this value */
+    transition: transform 0.2s; /* ใส่การเปลี่ยนแปลงของ transform ทำให้มีเอฟเฟคเวลาชี้ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเอฟเฟคเงาเมื่อชี้ */
+  }
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเอฟเฟคเงาเมื่อชี้ */
+  }
+
+  .card-body {
+    background-color: #f8f9fa; /* เพิ่มสีพื้นหลังส่วน body */
+  }
+
+  .card-text {
+    color: #6c757d; /* เปลี่ยนสีข้อความ */
+  }
+
+  .btn {
+    transition: background-color 0.2s, color 0.2s; /* เพิ่มเอฟเฟคเมื่อชี้ปุ่ม */
+  }
+
+  .btn:hover {
+    background-color: #343a40;
+    color: white;
+  }
+  .navbar {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar a {
+    text-decoration-line: none;
+  }
+  .fade-in {
+  animation: fadeInAnimation 1s ease-in forwards; /* 1s คือความยาวของ animation */
+  opacity: 0; /* เริ่มต้นที่โปร่งใส 0 */
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1; /* สิ้นสุดที่โปร่งใส 1 */
+  }
+}
+  </style>
+</head>
+
+<body class="bg-light">
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">KGN<i class="bi bi-2-circle-fill"></i>HAND</a></a>
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <a class="nav-link" href="/"><i class="bi bi-house-fill"></i> Home</a>
+        </li>
+      </ul>
+      <form class="cart-form d-flex" action="/orders" method="get">
+        <div class="container-fluid">
+          <div class="navbar-right">
+            <div class="left-aligned-text">
+              <span>ยินดีต้อนรับลูกค้า</span>
+              <button type="submit" class="btn btn-outline-dark" onclick="viewCart()"><i class="bi-cart-fill me-1"></i>
+                Cart <span class="badge bg-danger text-white ms-1 rounded-pill" id="cart-count">0</span></button>
+              <input type="hidden" name="productIDs" id="productIDs" value="">
+              <input type="hidden" name="customerID" id="customerID" value=" <%= customerID %>">
+              <input type="hidden" name="quantity" id="quantity" value="1">
+              <a> | </a>
+              <a href="/" class="nav-item link-dark"><i class="bi bi-box-arrow-right"></i> Sign Out</a>
+
+      </form>
+      <script>
+        var shoppingCart = [];
+    
+        function addToCart(productId, productName, productPrice) {
+          var isItemInCart = false;
+          for (var i = 0; i < shoppingCart.length; i++) {
+            if (shoppingCart[i].productId === productId) {
+              isItemInCart = true;
+              break;
+            }
+          }
+    
+          if (!isItemInCart) {
+            shoppingCart.push({
+              productId: productId,
+              productName: productName,
+              productPrice: productPrice
+            });
+    
+            updateCartCount();
+            updateProductIDsInput(); // Call a new function to update the hidden input field
+          }
+        }
+    
+        function updateCartCount() {
+          var cartCount = document.getElementById('cart-count');
+          cartCount.textContent = shoppingCart.length;
+        }
+    
+        function viewCart() {
+          // You can implement your logic here to display the shopping cart items to the user.
+          // For example, you could create a modal or redirect the user to a new page.
+          console.log(shoppingCart);
+        }
+    
+        function updateProductIDsInput() {
+          // Get the hidden input field
+          var productIDsInput = document.getElementById('productIDs');
+    
+          // Get an array of product IDs from the shoppingCart array
+          var productIDsArray = shoppingCart.map(item => item.productId);
+    
+          // Set the value of the hidden input field with a comma-separated list of product IDs
+          productIDsInput.value = productIDsArray.join(',');
+        }
+      </script>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </nav>
+  <header class="bg-dark py-5"
+    style="background-image: url(https://marketplace.rakuten.net/hubfs/Fashion%20%26%20Athleisure%20in%20Japan.jpg);">
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">สินค้าทั้งหมด ( Products )</h1>
+        <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+      </div>
+    </div>
+  </header>
+  <section id="products" style="padding: 2rem;">
+    <div class="row gx-4 gx-lg-5">
+      <% for(var i=0; i < items.length; i++) { %>
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card mb-4 card mb-4 d-flex flex-column fade-in" style="min-height: 300px;">
+            <style>
+              .product-image {
+                width: 100%;
+                height: 200px;
+                /* กำหนดความสูงของรูปภาพ */
+                object-fit: cover;
+              }
+  
+              .card-img-top {
+                width: 100%;
+                height: 20vw;
+                object-fit: cover;
+              }
+            </style>
+            <img class="product-image mx-auto" src="<%= '/images/' + items[i].Image %>" alt="product image">
+            <div class="card-body">
+              <a class="card-title" style="text-decoration: none;">
+                <%= items[i].ProductName %>
+              </a>
+              <p class="card-text">Price: <%= items[i].ProductPrice %> บาท [THB]</p>
+              <button class="btn btn-outline-dark mt-auto"
+                onclick="addToCart('<%= items[i].ProductID %>', '<%= items[i].ProductName %>', '<%= items[i].ProductPrice %>');">
+                <i class="bi-cart-fill me-1"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <% } %>
+    </div>
+  </section>
+  <footer class="py-6 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright © KGN2HANDSHOP Since 2023</p>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* Add custom styles for the navigation bar and search bar */
+    body {
+      color: #000000;
+    }
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .navbar a {
+      text-decoration: none;
+    }
+    /* Add custom styles for the main content */
+    .main-content {
+      padding: 10% 0; /* Adjust vertical padding */
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh; 
+    }
+
+    /* Add custom styles for the login form */
+    .login-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 50px;
+      border-radius: 10px; /* Increase border-radius */
+      background-color: rgba(255, 255, 255, 0.8); /* Add a bit of transparency to the background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 15px; /* Increase padding */
+      margin-bottom: 15px; /* Increase margin-bottom */
+      border: none; /* Remove border */
+      background-color: #f8f9fa; /* Light gray background */
+      border-radius: 8px; /* Rounded corners */
+    }
+    .login-form button {
+      width: 100%;
+      padding: 15px; /* Increase padding */
+      
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Add a smooth transition effect */
+    }
+    .a{
+      text-decoration: none;
+    }
+    
+  </style>
+</head>
+<body class="bg-light">
+ <!-- Navigation bar -->
+ <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> KGN<i class="bi bi-2-circle-fill"></i>HAND</a>
+    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <li class="nav-item">
+        <a class="nav-link" href="/"><i class="bi bi-house-fill"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/customer_auth/productsForm"><i class="bi bi-bag-fill"></i> Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact"><i class="bi bi-person-lines-fill"></i> Contact Us</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+ <!-- Login Form -->
+ 
+  <div class="main-content">
+  <div class="login-form text-center">
+    <h1 class="h1 mb-4 fw-normal">KGN<i class="bi bi-2-circle-fill"></i>HAND</a></h1>
+    <h4 class="mb-2 fw-normal">Please to Sign in</h4>
+
+    <form action="/auth" method="POST">
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" placeholder="Password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      <a href="/registerForm" class="nav-item "> สมัครสมาชิก!</a>
+    </form>
+  </div>
+</div>
+</body>
+</html>

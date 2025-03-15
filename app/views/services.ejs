@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap">
+</head>
+
+<body>
+    <style>
+        /* Add custom styles for the navigation bar and search bar */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            text-decoration: none;
+        }
+
+        .navbar .navbar-right {
+            float: right;
+        }
+
+        /* Add custom styles for the main content */
+        .main-content {
+            padding: 5% 0;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        .main-content h1 {
+            font-size: 3rem;
+            color: #000000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add custom styles for the text content */
+        .container {
+            margin-top: 20px;
+            text-align: left;
+            color: #000000;
+        }
+
+        .container p {
+            font-size: 1.2rem;
+        }
+
+        .container ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .container a {
+            color: #0000FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Add custom styles for responsiveness */
+        @media (max-width: 767px) {
+            .main-content {
+                padding: 15% 0;
+            }
+        }
+
+        .navbar a {
+            text-decoration: none;
+        }
+    </style>
+    </head>
+
+    <body class="bg-light">
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">KGN<i class="bi bi-2-circle-fill"></i>HAND</a>
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="bi bi-house-fill"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer_auth/productsForm"><i class="bi bi-bag-fill"></i>
+                            Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/service"><i class="bi bi-gear-fill"></i> Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact"><i class="bi bi-person-lines-fill"></i> Contact Us</a>
+                    </li>
+
+                </ul>
+
+                <form class="d-flex">
+                    <div class="container-fluid">
+                        <div class="navbar-right">
+                            <a href="/loginform" class="nav-item link-dark"><i class="bi bi-box-arrow-in-right"></i>
+                                Sign In</a>
+                            <a> | </a>
+                            <a href="/registerForm" class="nav-item link-dark"> Sign Up!</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <header class="bg-dark py-5"
+            style="background-image: url(https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xvdGhlcyUyMHNob3B8ZW58MHx8MHx8fDA%3D&w=1000&q=80);">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Service</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">With this shop KGN2HAND</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <ul>
+                <h1>บริการขายเสื้อผ้าด้วยความสะดวกและความปลอดภัย</h1>
+            </ul>
+            <p>เรามีอะไรให้บริการบ้าง?</p>
+            <ul>
+                <li>การเข้าสู่ระบบและการสมัครสมาชิกทันสมัย: เพื่อความสะดวกและความปลอดภัยในการใช้งานเว็บไซต์ของเรา
+                    เรามีระบบการเข้าสู่ระบบที่ปลอดภัยและใช้งานง่าย และสามารถสมัครสมาชิกใหม่ได้อย่างรวดเร็ว</li>
+                <li>สินค้าที่หลากหลาย: เสื้อผ้าที่เรานำเสนอครอบคลุมทุกสไตล์และความต้องการ
+                    ไม่ว่าคุณจะกำลังมองหาเสื้อผ้าสำหรับงานเฉลิมฉลอง การทำงาน หรือชีวิตประจำวัน
+                    เรามีสินค้าที่ให้เลือกมากมาย</li>
+                <li>ประสบการณ์การช้อปปิ้งที่ดีที่สุด: เราคำนึงถึงความพึงพอใจของลูกค้าทุกท่าน
+                    ด้วยการให้บริการที่มีคุณภาพและรวดเร็ว รวมถึงระบบชำระเงินที่ง่ายและปลอดภัย</li>
+            </ul>
+            <p>เราหวังว่าคุณจะเพลิดเพลินกับการเลือกชมและช้อปปิ้งเสื้อผ้ากับเรา
+                อย่าลืมลงทะเบียนเพื่อรับข่าวสารและโปรโมชั่นพิเศษที่เรามีให้เฉพาะสมาชิกเท่านั้น!</p>
+            <p>หากคุณต้องการทราบรายละเอียดเพิ่มเติมเกี่ยวกับบริการของเรา หรือมีคำถามใด ๆ เกี่ยวกับการใช้งานเว็บไซต์
+                อย่าลังเลที่จะติดต่อเราทาง <a href="/contact">Contact Us</a> ทีมงานของเราพร้อมให้บริการคุณเสมอ!</p>
+        </div>
+    </body>
+
+</html>

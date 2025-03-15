@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/confirmOrder/<%= customerID %>" method="post">
+    <div class="container mt-4">
+      <h3 class="text-center">ตรวจสอบรายการสินค้าที่ทำการสั่งซื้อ</h3>
+      <h3 class="text-center">แสดงรายการสินค้าที่สั่งซื้อทั้งหมด</h3>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ชื่อสินค้า</th>
+              <th>ราคาสินค้า</th>
+              <th>จำนวนสินค้า</th>
+              <th>ราคารวม</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < products.length; i++) { %>
+              <tr>
+                <td><%= products[i].ProductName %></td>
+                <td><%= products[i].ProductPrice %></td>                  
+                <td>
+                  <div class="input-group" style="max-width: 120px;">
+                    <input class="form-control quantity-input" name = "quantitys" data-product-id="<%= products[i].ProductID %>" min="1" step="1" required value=<%=quantitys[i] %>>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary btn-modify-quantity" type="button" data-product-id="<%= products[i].ProductID %>" data-modifier="-">-</button>
+                      <button class="btn btn-outline-secondary btn-modify-quantity" type="button" data-product-id="<%= products[i].ProductID %>" data-modifier="+">+</button>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="subtotal"  data-product-id="<%= products[i].ProductID %>" data-product-price="<%= products[i].ProductPrice %>"><%= subtotals[i] %></span></td>
+                <input type="hidden" name="ProductID" id="hiddenProductID" value='<%= products[i].ProductID %>'>
+                <input type="hidden" name="ProductPrice" id="hiddenProductPrice" value='<%= products[i].ProductPrice %>'>
+                <input type="hidden" name="subtotals" id="hiddenSubtotals" value='<%= subtotals[i] %>'>          
+              </tr>
+            <% } %>
+          </tbody>
+
+        </table>
+      </div>
+      <div class="text-center mt-4">
+        <p id="totalPrice">ราคารวมทั้งหมด <span id="totalPriceValue"><%= total %></span> บาท</p>
+      </div>
+      <div class="text-center">
+        <!-- ส่วน HTML ในแบบฟอร์ม -->
+        <input type="hidden" name="totalPrice" id="hiddenTotal" value="<%= total %>">
+   
+        <input type="hidden" name="customerID" id="hiddencustomerID" value='<%= customerID %>'>
+        <button type="submit" class="btn btn-secondary">ยืนยันการซื้อสินค้า</button>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    const quantityInputs = document.querySelectorAll('.quantity-input');
+    const modifyButtons = document.querySelectorAll('.btn-modify-quantity');
+    const subtotalElements = document.querySelectorAll('.subtotal');
+    const totalPriceValueElement = document.getElementById('totalPriceValue');
+    const hiddenTotalInput = document.getElementById('hiddenTotal'); // เพิ่มบรรทัดนี้
+    const hiddenSubtotalsInput = document.getElementById('hiddenSubtotals');
+
+//     <input type="hidden" name="subtotals" id="hiddenSubtotals" value='<%= JSON.stringify(subtotals) %>'>
+    // Initialize selectedQuantities array to store quantity values
+    const selectedQuantities = {};
+
+    // Calculate initial total price
+    let initialTotalPrice = 0;
+    subtotalElements.forEach(element => {
+      const productPrice = parseFloat(element.getAttribute('data-product-price'));
+      initialTotalPrice += productPrice;
+    });
+    totalPriceValueElement.textContent = initialTotalPrice.toFixed(2);
+
+    modifyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modifier = button.getAttribute('data-modifier');
+        const productId = button.getAttribute('data-product-id');
+        const quantityInput = document.querySelector(`input[data-product-id="${productId}"]`);
+        updateQuantity(quantityInput, modifier);
+      });
+    });
+
+    function updateQuantity(input, modifier) {
+      const productId = input.getAttribute('data-product-id');
+      const subtotalElement = document.querySelector(`span[data-product-id="${productId}"]`);
+
+      let quantityInput = input;
+      let quantity = parseInt(quantityInput.value);
+
+      if (modifier === '+') {
+        quantity++;
+      } else if (modifier === '-') {
+        if (quantity > 1) {
+          quantity--;
+        }
+      }
+
+      quantityInput.value = quantity;
+      updateSubtotal(productId, quantity, subtotalElement);
+      updateTotalPrice();
+
+      // Update selectedQuantities
+      selectedQuantities[productId] = quantity;
+    }
+
+    let subtotals = []; 
+
+    function updateSubtotal(productId, quantity, subtotalElement) {
+      const productPrice = parseFloat(subtotalElement.getAttribute('data-product-price'));
+      const subtotal = productPrice * quantity;
+      subtotalElement.textContent = subtotal.toFixed(2);
+
+      if (!subtotals[productId]) {
+        subtotals[productId] = [];
+      }
+      subtotals[productId] = subtotal; //[productId][quantity]
+      
+      hiddenSubtotalsInput.value = subtotals;
+    }
+
+    function updateTotalPrice() {
+      let total = 0;
+  
+      subtotalElements.forEach(element => {
+        const subtotal = parseFloat(element.textContent);
+        if (!isNaN(subtotal)) {
+          total += subtotal;
+          const productId = element.getAttribute('data-product-id');
+        }
+      });
+      totalPriceValueElement.textContent = total.toFixed(2);
+      hiddenTotalInput.value = total.toFixed(2); // อัพเดตค่าในอิลิเมนต์ <input>
+
+    }
+
+  </script>
+</body>
+</html>
