@@ -17,12 +17,12 @@ Shopstore2Hand เป็นเว็บไซต์สำหรับซื้�
 ### 1. **Clone Repository**
 
 ```sh
-git clone https://github.com/xaviousfelix/Shopstore2Hand.git
-cd Shopstore2Hand
+git clone [https://github.com/xaviousfelix/Website-E-commerce.git]
+cd Website-E-commerce
 ```
 
 ### 2. **ติดตั้ง Dependencies**
-
+cd app
 ```sh
 npm install
 ```
@@ -55,7 +55,7 @@ module.exports = connection;
 ### 4. **รันเซิร์ฟเวอร์**
 
 ```sh
-npm start
+npm start or node app.js
 ```
 
 หากมีข้อสงสัยเพิ่มเติม สามารถติดต่อหรือเปิด Issue ใน Repository ได้เลย! 🚀
