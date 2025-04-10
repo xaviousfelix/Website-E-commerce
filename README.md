@@ -17,7 +17,7 @@ Shopstore2Hand เป็นเว็บไซต์สำหรับซื้�
 ### 1. **Clone Repository**
 
 ```sh
-git clone [https://github.com/xaviousfelix/Website-E-commerce.git]
+git clone https://github.com/xaviousfelix/Website-E-commerce.git
 cd Website-E-commerce
 ```
 
